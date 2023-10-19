@@ -8,3 +8,7 @@
   Cidade: <%=warehouse.city%>
   Área: <%=warehouse.area%> m²
 <% end %>
+
+<% if @warehouses.empty?  %>
+  <p>Não existem galpões cadastrados</p>
+<% end %>

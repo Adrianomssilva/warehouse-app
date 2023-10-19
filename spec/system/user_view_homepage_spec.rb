@@ -14,7 +14,6 @@ describe "Usuário visita tela inicial" do
 
   it "e vê os galpões na tela" do
     # Arrange
-    # cadastrar 2 galpoes: Rio e Maceio
     Warehouse.create(name: 'Rio', code: 'SDU', city: 'Rio de Janeiro', area: 60_000)
     Warehouse.create(name: 'Maceio', code: 'MCZ', city: 'Maceio', area: 50_000)
 
@@ -22,7 +21,7 @@ describe "Usuário visita tela inicial" do
     visit('/')
 
     # Assert
-    # garantir que eu vejo na tela os galpoes Rio e Maceio
+    expect(page).not_to have_content('Não existem galpões cadastrados')
     expect(page).to have_content('Rio')
     expect(page).to have_content('Código: SDU')
     expect(page).to have_content('Cidade: Rio de Janeiro')
@@ -34,6 +33,15 @@ describe "Usuário visita tela inicial" do
     expect(page).to have_content('50000 m²')
   end
 
+  it "e não vê galpões cadastrados" do
+    # Arrange
+
+    # Act
+    visit('/')
+
+    #Assert
+    expect(page).to have_content('Não existem galpões cadastrados')
+  end
 
 
 end

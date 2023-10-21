@@ -36,9 +36,26 @@ describe "usuário cadastra um galpão" do
     click_on 'Enviar'
     # Assert
     expect(current_path).to eq root_path
+    expect(page).to have_content 'Galpão cadastrado com sucesso'
     expect(page).to have_content 'Rio de Janeiro'
     expect(page).to have_content 'GIG'
     expect(page).to have_content '150000 m²'
+  end
+
+  it "sem sucesso" do
+
+    # Act
+    visit root_path
+    click_on 'Cadastrar Galpão'
+
+    fill_in "Nome",	with: ""
+    fill_in "Código",	with: ""
+    fill_in "Cidade",	with: ""
+    click_on 'Enviar'
+
+    # Assert
+    expect(page).to have_content 'Galpão não cadastrado'
+
   end
 
 

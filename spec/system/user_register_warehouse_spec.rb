@@ -55,6 +55,9 @@ describe "usuário cadastra um galpão" do
 
     # Assert
     expect(page).to have_content 'Galpão não cadastrado'
+    expect(page).to have_content 'Nome não pode ficar em branco'
+    expect(page).to have_content 'Código não pode ficar em branco'
+    expect(page).to have_content 'Cidade não pode ficar em branco'
 
   end
 

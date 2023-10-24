@@ -2,6 +2,7 @@ pt-BR:
   activerecord:
     models:
       warehouse: 'Galpão'
+      supplier: 'Fornecedor'
     attributes:
       warehouse:
         name: 'Nome'
@@ -11,4 +12,12 @@ pt-BR:
         cep: 'CEP'
         area: 'Área'
         address: 'Endereço'
+      supplier:
+        corporate_name: 'Razão Social'
+        brand_name: 'Nome Fantasia'
+        registration_number: 'CNPJ'
+        full_address: 'Endereço'
+        city: 'Cidade'
+        state: 'Estado'
+        email: 'E-mail'
       # will translate User attribute "login" as "Handle"

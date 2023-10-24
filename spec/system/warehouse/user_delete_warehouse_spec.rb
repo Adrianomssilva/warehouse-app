@@ -31,6 +31,4 @@ describe "Usuário remove um galpão" do
       expect(page).to have_content 'Sp'
 
   end
-
-
 end

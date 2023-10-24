@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_19_161120) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_24_183203) do
+  create_table "suppliers", force: :cascade do |t|
+    t.string "corporate_name"
+    t.string "brand_name"
+    t.string "registration_number"
+    t.text "full_address"
+    t.string "city"
+    t.string "state"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "warehouses", force: :cascade do |t|
     t.string "name"
     t.string "code"

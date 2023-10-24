@@ -1,5 +1,5 @@
 <h1>Fornecedores</h1>
-
+<div><%= link_to  "Novo Fornecedor", new_supplier_path %></div>
 <% if @suppliers.any? %>
   <table>
     <thead>
@@ -20,3 +20,4 @@
   <% else %>
   <p>Não existem fornecedores cadastrados</p>
 <% end %>
+

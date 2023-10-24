@@ -16,7 +16,7 @@ describe "usuário cadastra um galpão" do
     expect(page).to have_field('Cidade')
     expect(page).to have_field('Área')
     expect(page).to have_field('Endereço')
-    expect(page).to have_field('Cep')
+    expect(page).to have_field('CEP')
     expect(page).to have_field('Descrição')
 
   end
@@ -31,7 +31,7 @@ describe "usuário cadastra um galpão" do
     fill_in "Cidade",	with: "Rio de Janeiro"
     fill_in "Área",	with: "150000"
     fill_in "Endereço",	with: "Aeroporto Galeão, n 100"
-    fill_in "Cep",	with: "08150-000"
+    fill_in "CEP",	with: "08150-000"
     fill_in "Descrição",	with: "Galpão localizado no Aeroporto Galeão no Rio de Janeiro"
     click_on 'Enviar'
     # Assert

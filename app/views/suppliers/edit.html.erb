@@ -1,14 +1,4 @@
-<h1>Novo Fornecedor</h1>
-
-<%if @supplier.errors.any?%>
-  <p>Verifique os erros abaixo: </p>
-  <ul>
-    <%@supplier.errors.full_messages.each do |msg|%>
-      <li><%=msg%></li>
-    <% end %>
-  </ul>
-<% end %>
-
+<h1>Editar Fornecedor</h1>
 
 <%= form_with(model: @supplier) do |f| %>
 <div>

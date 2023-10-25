@@ -15,8 +15,32 @@ class SuppliersController < ApplicationController
 
   def create
     @supplier = Supplier.new(suppliers_params)
-    @supplier.save
+    if @supplier.save
     redirect_to suppliers_path, notice: 'Fornecedor cadastrado com sucesso!'
+    else
+      flash.now[:notice] = 'Fornecedor não cadastrado.'
+      render 'new'
+      end
+  end
+
+  def edit
+    @supplier = Supplier.find(params[:id])
+  end
+
+  def update
+    @supplier = Supplier.find(params[:id])
+    if @supplier.update(suppliers_params)
+      redirect_to supplier_path, notice: 'Fornecedor editado com sucesso'
+    else
+      flash.now[:notice] = 'Não foi possível editar o fornecedor'
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @supplier = Supplier.find(params[:id])
+    @supplier.delete
+    redirect_to suppliers_path, notice: 'Fornecedor removido com sucesso'
   end
 
 

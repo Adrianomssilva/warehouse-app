@@ -6,7 +6,9 @@ describe "usuário cadastra um modelo de produto" do
     # Arrange
     supplier = Supplier.create!(brand_name: 'Samsung', corporate_name: 'Samsung Eletrônicos - LTDA', registration_number: '1231234', full_address:'rua do limoeiro, 100', city: 'São Paulo', state: 'SP', email: 'contato@samsung.com.br')
     supplier2 = Supplier.create!(brand_name: 'LG', corporate_name: 'LG Eletrônicos - LTDA', registration_number: '123123423', full_address:'rua do limoeiro, 102', city: 'São Paulo', state: 'SP', email: 'contato@lg.com.br')
-    #Act
+    user = User.create!(email: 'adriano@email.com', password: 'password')
+    # Act
+    login_as(user)
     visit root_path
     click_on 'Modelos de Produtos'
     click_on 'Cadastrar Novo'
@@ -29,10 +31,12 @@ describe "usuário cadastra um modelo de produto" do
   end
 
   it "deve preencher todos os campos" do
-     # Arrange
+    # Arrange
     supplier = Supplier.create!(brand_name: 'Samsung', corporate_name: 'Samsung Eletrônicos - LTDA', registration_number: '1231234', full_address:'rua do limoeiro, 100', city: 'São Paulo', state: 'SP', email: 'contato@samsung.com.br')
 
-    #Act
+    user = User.create!(email: 'adriano@email.com', password: 'password')
+    # Act
+    login_as(user)
     visit root_path
     click_on 'Modelos de Produtos'
     click_on 'Cadastrar Novo'

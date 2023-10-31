@@ -3,7 +3,7 @@
 <%=form_with(model: @order) do |f|%>
   <div>
     <%= f.label :warehouse_id, 'Galpão Destino'%>
-    <%= f.collection_select :warehouse_id, @warehouses, :id, :name %>
+    <%= f.collection_select :warehouse_id, @warehouses, :id, :full_description %>
   </div>
   <div>
     <%= f.label :supplier_id, 'Fornecedor'%>

@@ -22,7 +22,7 @@ describe "usuário cadastra um pedido" do
 
     supplier =  Supplier.create!(corporate_name: 'Nestle S/A', brand_name: 'Nestle', registration_number: '1200909090909', full_address: 'rua das industrias, 100', city: 'Sorocaba', state: 'SP', email: 'contato@nestle.com.br')
     supplier1 = Supplier.create!(corporate_name: 'Coca S/A', brand_name: 'Coca-cola', registration_number: '1202312314123', full_address: 'rua das industrias, 112', city: 'Rio de Janeiro', state: 'RJ', email: 'contato@coca-cola.com.br')
-
+      allow(SecureRandom).to receive(:alphanumeric).and_return('ABC12345')
     #Act
     login_as (user)
     visit root_path
@@ -34,6 +34,7 @@ describe "usuário cadastra um pedido" do
 
     #Assert
     expect(page).to have_content 'Pedido registrado com sucesso'
+    expect(page).to have_content 'Pedido ABC12345'
     expect(page).to have_content 'Galpão Destino: SDU - Rio'
     expect(page).to have_content 'Fornecedor: Nestle S/A'
     expect(page).to have_content 'Data Prevista de Entrega: 20/12/2023'
